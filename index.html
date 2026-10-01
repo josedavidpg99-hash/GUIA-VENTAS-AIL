@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Guía de Ventas AIL — David Pacheco</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f5f1; --card:#ffffff; --ink:#1d1b19; --muted:#6f6a63;
+  --accent:#0f766e; --accent-d:#0b5f59; --dark:#16211f; --dark2:#1f2f2c;
+  --bubble:#e8f5e3; --line:#e8e2d8; --gold:#b98a2f;
+}
+*{box-sizing:border-box; -webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{margin:0; background:var(--bg); color:var(--ink); font-family:Inter,system-ui,sans-serif; font-size:16px; line-height:1.55;}
+.wrap{max-width:760px; margin:0 auto; padding:0 16px 90px;}
+.topbar{position:sticky; top:0; z-index:50; background:var(--dark); color:#fff; padding:14px 16px 10px; box-shadow:0 2px 12px rgba(0,0,0,.18);}
+.topbar h1{font-family:Fraunces,serif; font-size:21px; margin:0; font-weight:700; letter-spacing:.2px;}
+.topbar p{margin:2px 0 10px; font-size:12.5px; color:#b9c4c0;}
+.nav{display:flex; gap:8px; overflow-x:auto; padding-bottom:6px; scrollbar-width:none;}
+.nav::-webkit-scrollbar{display:none;}
+.nav a{flex:0 0 auto; color:#dfe7e4; text-decoration:none; font-size:13px; font-weight:600; padding:7px 13px; border:1px solid #3a4a47; border-radius:999px; white-space:nowrap;}
+.nav a:active{background:var(--accent);}
+h2.sec{font-family:Fraunces,serif; font-size:24px; margin:34px 0 6px; font-weight:700;}
+.sub{color:var(--muted); font-size:14px; margin:0 0 16px;}
+.card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; margin:0 0 14px; box-shadow:0 1px 3px rgba(0,0,0,.04);}
+.card h3{margin:0 0 4px; font-size:16.5px; font-weight:700;}
+.use{font-size:13px; color:var(--accent-d); font-weight:600; margin:0 0 10px;}
+.bubble{background:var(--bubble); border-radius:4px 14px 14px 14px; padding:12px 14px; font-size:15px; line-height:1.6; white-space:pre-wrap; word-wrap:break-word; margin:0 0 10px; border:1px solid #d3e8cd;}
+.bubble .ph{color:var(--accent-d); font-weight:700;}
+.copybtn{display:inline-flex; align-items:center; gap:6px; background:var(--accent); color:#fff; border:0; border-radius:999px; padding:9px 18px; font-size:14px; font-weight:600; cursor:pointer; font-family:inherit;}
+.copybtn:active{background:var(--accent-d); transform:scale(.97);}
+.copybtn.done{background:#2e7d32;}
+.note{font-size:13px; color:var(--muted); margin:8px 0 0;}
+.rule{display:flex; gap:10px; align-items:flex-start; padding:10px 0; border-bottom:1px solid var(--line); font-size:15px;}
+.rule:last-child{border-bottom:0;}
+.rule .n{flex:0 0 26px; height:26px; border-radius:50%; background:var(--dark); color:#fff; font-size:13px; font-weight:700; display:flex; align-items:center; justify-content:center;}
+.step{display:flex; gap:12px; padding:12px 0; border-bottom:1px solid var(--line);}
+.step:last-child{border:0;}
+.day{flex:0 0 64px; font-weight:700; color:var(--accent-d); font-size:14px; padding-top:2px;}
+.obj{border-left:4px solid var(--gold); background:#fffdf6; border-radius:0 12px 12px 0; padding:12px 14px; margin:0 0 12px; border-top:1px solid var(--line); border-right:1px solid var(--line); border-bottom:1px solid var(--line);}
+.obj b.q{display:block; font-size:14.5px; margin-bottom:6px;}
+.obj p{margin:0; font-size:14.5px; color:#3d3831;}
+details.script{margin:0 0 14px;}
+details.script summary{list-style:none; cursor:pointer; background:var(--dark2); color:#fff; border-radius:14px; padding:14px 16px; font-weight:700; font-size:15.5px; display:flex; justify-content:space-between; align-items:center; gap:8px;}
+details.script summary::-webkit-details-marker{display:none;}
+details.script summary .tag{font-size:11.5px; font-weight:600; background:var(--accent); padding:4px 10px; border-radius:999px; white-space:nowrap;}
+details.script[open] summary{border-radius:14px 14px 0 0;}
+.dbody{background:var(--card); border:1px solid var(--line); border-top:0; border-radius:0 0 14px 14px; padding:16px;}
+.caller{font-size:14.5px; margin:0 0 8px;}
+.caller b{color:var(--accent-d);}
+.branch{background:#f2efe9; border-radius:10px; padding:10px 12px; margin:8px 0; font-size:14px;}
+table.score{width:100%; border-collapse:collapse; font-size:14px; background:#fff; border-radius:12px; overflow:hidden;}
+table.score th{background:var(--dark); color:#fff; text-align:left; padding:10px 12px; font-size:13px;}
+table.score td{padding:10px 12px; border-bottom:1px solid var(--line);}
+table.score tr:last-child td{border-bottom:0;}
+td[contenteditable]{background:#fffbe8; border-radius:6px; min-width:70px; outline:none;}
+td[contenteditable]:focus{background:#fff3c4;}
+.quote{font-family:Fraunces,serif; font-size:19px; font-style:italic; line-height:1.5; color:var(--dark); margin:0;}
+.qsrc{font-size:13px; color:var(--muted); margin-top:8px;}
+.kv{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+.kv .k{background:#fff; border:1px solid var(--line); border-radius:12px; padding:12px; font-size:14px;}
+.kv .k b{display:block; color:var(--accent-d); font-size:22px; font-family:Fraunces,serif;}
+footer{margin-top:40px; padding-top:16px; border-top:1px solid var(--line); color:var(--muted); font-size:12.5px;}
+@media(min-width:700px){ .topbar h1{font-size:24px;} }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div style="max-width:760px;margin:0 auto;">
+    <h1>Guía de Ventas AIL</h1>
+    <p>David Pacheco &middot; Protección y Planificación Familiar &middot; Mensajes listos para copiar</p>
+    <nav class="nav">
+      <a href="#sistema">Sistema</a><a href="#mensajes">Mensajes</a><a href="#secuencia">Secuencia</a><a href="#objeciones">Objeciones</a><a href="#cita">La cita</a><a href="#referidos">Referidos</a><a href="#numeros">Números</a>
+    </nav>
+  </div>
+</div>
+<div class="wrap">
+
+<h2 class="sec" id="sistema">El sistema en 30 segundos</h2>
+<p class="sub">Tu mapa, tal como lo definiste: el servicio gratuito abre la puerta a la planificación.</p>
+<div class="card">
+  <p class="quote">"Mi trabajo hoy no es decirle que compre algo. Mi trabajo es ayudarle a revisar cómo está organizada su familia."</p>
+  <p class="qsrc">Mapa: Persona &rarr; Conexión &rarr; Oportunidades &rarr; Servicio gratuito &rarr; Necesidad &rarr; Urgencia &rarr; Solución &rarr; Decisión. &mdash; "No tengo que correr para vender."</p>
+</div>
+<div class="card">
+  <div class="rule"><span class="n">1</span><span><b>El beneficio gratuito abre.</b> Tarjeta de descuentos médicos gratis + Kit de Protección Infantil. Nunca se empieza hablando de seguros.</span></div>
+  <div class="rule"><span class="n">2</span><span><b>La cita presenta la necesidad.</b> Pregunta guía, ilustrador familiar, 2 o 3 opciones.</span></div>
+  <div class="rule"><span class="n">3</span><span><b>Cada cliente trae 10 referidos.</b> Ahí está el crecimiento del mes siguiente.</span></div>
+</div>
+
+<h2 class="sec" id="mensajes">Mensajes: cuál usar con cada lead</h2>
+<p class="sub">Toca "Copiar" y pégalo en WhatsApp. Los textos entre corchetes se reemplazan con el dato real.</p>
+
+<div class="card">
+  <h3>Referido con nombre <span style="font-weight:400;color:var(--muted);font-size:13px;">(ej. los 10 de Carmen)</span></h3>
+  <p class="use">Úsalo con: referidos donde sí puedes nombrar a quien te pasó el número. Lo envía el cliente que refiere, o se lo pides para reenviar.</p>
+  <div class="bubble" id="m1">¡Oyeee! Encontré un beneficio buenísimo y lo mejor es que es totalmente GRATIS!! 🙌
+
+Quise dar tu número para que también puedas recibirlo. En estos días te va a llamar la persona que me visitó, tiene su licencia y todo, José Pacheco (Lic. #1132158). Este es su número: 385-230-2341.
+
+Él te va a explicar cómo funciona y cómo puedes recibir un Kit de Asfixia para el hogar, pensado para ayudar en una emergencia cuando una persona se está ahogando o tiene una obstrucción en las vías respiratorias.
+
+Si te interesa después de que te explique, perfecto, y si no, tampoco pasa nada. Igual vale muchísimo la pena escuchar la información porque es algo que uno espera nunca tener que usar, pero que puede ser muy importante tener en casa, especialmente si hay niños o adultos mayores.
+
+A mí me pareció excelente y por eso pensé en ti. ❤️ Dale la oportunidad de explicártelo porque para ser GRATIS, vale muchísimo la pena.</div>
+  <button class="copybtn" data-copy="m1">Copiar mensaje</button>
+</div>
+
+<div class="card">
+  <h3>Referido sin nombre <span style="font-weight:400;color:var(--muted);font-size:13px;">(ej. leads de Cristian)</span></h3>
+  <p class="use">Úsalo con: referidos donde NO nombras a ningún referidor. Estilo recomendación, sin licencia ni teléfono en el primer mensaje.</p>
+  <div class="bubble" id="m2">¡Holaaa! 😊 Te quería contar que hace poco yo recibí unos beneficios totalmente GRATIS para familias y me parecieron muy buenos, así que quise compartirlos contigo.
+
+Uno es una tarjeta de descuentos médicos que puede ayudar en visión, dental, medicamentos, laboratorios, telemedicina, rayos X, quiropráctico y otros servicios.
+
+También tienen un Kit de Protección Infantil para las familias con niños, para ayudar a tener organizada información importante de los pequeños en caso de una emergencia. 👨‍👩‍👧‍👦
+
+Yo dejé tu información para que también puedas conocerlos, así que en estos días se van a estar comunicando contigo para explicarte cómo funcionan y, si te interesa, coordinar contigo para que te den toda la información.
+
+A mí me pareció algo que vale muchísimo la pena, especialmente porque no tiene costo, y por eso pensé en ti. 😊</div>
+  <button class="copybtn" data-copy="m2">Copiar mensaje</button>
+</div>
+
+<div class="card">
+  <h3>Cliente consular <span style="font-weight:400;color:var(--muted);font-size:13px;">(reactivación)</span></h3>
+  <p class="use">Úsalo con: antiguos clientes de citas consulares. El puente primero, el beneficio después.</p>
+  <div class="bubble" id="m3">Hola <span class="ph">[Nombre]</span>, ¿te acuerdas de mí? Soy David Pacheco, antes te ayudé con tu trámite consular.
+
+Te quería contar que hace poco yo recibí unos beneficios totalmente GRATIS para familias y me parecieron muy buenos, así que quise compartirlos contigo.
+
+Uno es una tarjeta de descuentos médicos que puede ayudar en visión, dental, medicamentos, laboratorios, telemedicina, rayos X, quiropráctico y otros servicios.
+
+También tienen un Kit de Protección Infantil para las familias con niños, para ayudar a tener organizada información importante de los pequeños en caso de una emergencia. 👨‍👩‍👧‍👦
+
+Yo dejé tu información para que también puedas conocerlos, así que en estos días se van a estar comunicando contigo para explicarte cómo funcionan y, si te interesa, coordinar contigo para que te den toda la información.
+
+A mí me pareció algo que vale muchísimo la pena, especialmente porque no tiene costo, y por eso pensé en ti. 😊</div>
+  <button class="copybtn" data-copy="m3">Copiar mensaje</button>
+</div>
+
+<div class="card">
+  <h3>Conocido — primer contacto</h3>
+  <p class="use">Úsalo con: conocidos y contactos de tu teléfono. Objetivo: conseguir un "sí, explícame".</p>
+  <div class="bubble" id="m4">Hola <span class="ph">[Nombre]</span>, ¿cómo estás? Te escribo porque recientemente empecé a trabajar con un programa acá en Utah y me dieron acceso para compartir gratuitamente un beneficio de descuentos médicos con familiares, amigos y conocidos.
+
+Incluye descuentos en cosas como dental, visión, medicamentos, laboratorios, telemedicina y otros servicios de salud. No tienes que comprar nada para recibirlo.
+
+Me acordé de ti y quería preguntarte si te gustaría que te explique rápidamente cómo funciona y, si te interesa, te ayudo a obtenerlo.</div>
+  <button class="copybtn" data-copy="m4">Copiar mensaje</button>
+</div>
+
+<div class="card">
+  <h3>Conocido — dijo que sí</h3>
+  <p class="use">Úsalo con: quien respondió que sí al mensaje anterior. Presenta la app y pide 10–15 minutos.</p>
+  <div class="bubble" id="m5">Perfecto. Es una aplicación de beneficios llamada AIL Plus. Dependiendo del servicio, ofrece diferentes descuentos en atención médica y servicios relacionados.
+
+Yo soy agente licenciado en Utah y puedo ayudarte a activar el beneficio sin costo y explicarte cómo utilizarlo.
+
+Además, como se puede compartir con familiares y amigos, normalmente también les explico brevemente qué otros recursos de protección familiar tienen disponibles.
+
+¿Cuándo tienes unos 10–15 minutos para que te lo muestre?</div>
+  <button class="copybtn" data-copy="m5">Copiar mensaje</button>
+</div>
+
+<div class="card">
+  <h3>Amiga / contacto de confianza</h3>
+  <p class="use">Úsalo con: personas de mucha confianza. Tono personal, hasta nota de voz.</p>
+  <div class="bubble" id="m6">Amiga, te quería avisar que di tu número a una empresa que está ofreciendo una tarjeta de descuento para servicios médicos totalmente gratis. A mí me la dieron y la verdad me ha parecido súper buena; incluso me ha ayudado a conseguir algunos descuentos en servicios y cosas que he necesitado para mi bebé.
+
+Seguramente te van a estar llamando para explicarte cómo funciona y darte la información. Te aviso para que sepas que fui yo quien te recomendó 😊</div>
+  <button class="copybtn" data-copy="m6">Copiar mensaje</button>
+</div>
+
+<div class="card">
+  <h3>Cierre de cita — dos horarios</h3>
+  <p class="use">Úsalo con: quien ya mostró interés. Tu mejor cerrador de citas: revisión gratuita + dos opciones de horario.</p>
+  <div class="bubble" id="m7">Hola <span class="ph">[Nombre]</span> 👋 Soy David.
+
+Estoy ayudando a varias familias de nuestra comunidad a hacer una revisión gratuita de protección familiar.
+
+La idea es revisar algunas cosas que muchas veces dejamos para después: qué beneficios tiene actualmente la familia, qué pasaría económicamente ante una emergencia, quién quedaría encargado de ciertas responsabilidades y qué opciones existen para proteger a la familia.
+
+También estamos entregando una tarjeta médica de descuentos sin costo para farmacia, dental, visión y otros servicios.
+
+No tiene costo hacer la revisión y normalmente toma unos 20–25 minutos.
+
+Tengo disponibilidad <span class="ph">[día]</span> a las <span class="ph">[hora]</span> o <span class="ph">[hora]</span>. ¿Cuál te queda mejor?</div>
+  <button class="copybtn" data-copy="m7">Copiar mensaje</button>
+</div>
+
+<div class="card">
+  <h3>Persona ocupada — reagendar</h3>
+  <p class="use">Úsalo con: quien dice que está ocupado. No le quitas tiempo, le pides otro día.</p>
+  <div class="bubble" id="m8">Jajaja tranquila, no le voy a quitar tiempo ahorita 😅 Es algo bueno que estoy haciendo acá en Utah y pensé en usted porque creo que le puede servir.
+
+Más que explicárselo corriendo, prefiero mostrárselo bien otro día porque son varias cositas y así usted me dice qué le parece.
+
+¿Qué día de esta semana tiene aunque sea 15 o 20 minuticos? Yo me acomodo.</div>
+  <button class="copybtn" data-copy="m8">Copiar mensaje</button>
+</div>
+
+<div class="card">
+  <h3>Formal con licencia — solo si ya esperan tu llamada</h3>
+  <p class="use">Úsalo con: referidos que YA saben que los vas a contactar. En frío, sin licencia: parece publicidad.</p>
+  <div class="bubble" id="m9">¡Holaaa! 😊 Te escribo porque estoy trabajando con unos beneficios para familias que me parecieron muy buenos y pensé en ti.
+
+Uno de ellos es una tarjeta de descuentos en servicios médicos totalmente GRATIS, que puedes utilizar para visión, dental, medicamentos, laboratorios, telemedicina, rayos X, quiropráctico y otros servicios, con descuentos que pueden ir del 10% al 85% dependiendo del servicio.
+
+También estamos entregando un Kit de Protección Infantil para las familias que tienen niños, que ayuda a tener organizada información importante de los pequeños en caso de alguna emergencia. 👨‍👩‍👧‍👦
+
+En estos días mi asistente te va a llamar de mi parte para explicarte brevemente de qué se trata y coordinar una cita conmigo para mostrarte cómo funcionan los beneficios.
+
+José Pacheco – Lic. #1132158
+📞 385-230-2341
+
+Te lo quise compartir porque creo que vale la pena conocer estos beneficios, especialmente siendo totalmente gratuitos. 😊</div>
+  <button class="copybtn" data-copy="m9">Copiar mensaje</button>
+</div>
+
+<details class="script">
+  <summary>Guion de llamada — entrega del Kit <span class="tag">Leads IMPACT</span></summary>
+  <div class="dbody">
+    <p class="use" style="margin-top:0;">Para leads que llenaron la solicitud del kit por internet. La asistente llama y agenda; no explica el beneficio por teléfono.</p>
+    <p class="caller"><b>Caller:</b> Buenos días/tardes, ¿tengo el gusto de hablar con el Sr./Sra. <span class="ph" style="color:var(--accent-d);font-weight:700;">[APELLIDO]</span>?</p>
+    <p class="caller"><b>Caller:</b> Mucho gusto. Mi nombre es <span class="ph" style="color:var(--accent-d);font-weight:700;">[NOMBRE]</span> y le llamo de American Income Life.</p>
+    <p class="caller"><b>Caller:</b> El motivo de mi llamada es porque usted llenó una solicitud por internet para recibir un kit de protección infantil, diseñado para ayudar a las familias a estar mejor preparadas ante una emergencia de atragantamiento o asfixia en niños.</p>
+    <p class="caller"><b>Caller:</b> Me comunico para coordinar la entrega y explicación del kit. Este beneficio es completamente gratuito y se entrega directamente en su domicilio.</p>
+    <p class="caller"><b>Caller:</b> Justamente mañana estaremos realizando entregas en su área. Tenemos disponibilidad en los siguientes horarios: <span class="ph" style="color:var(--accent-d);font-weight:700;">[HORARIOS]</span>. ¿Cuál de estos horarios le resulta más cómodo?</p>
+    <p class="caller"><b>Caller:</b> En su solicitud aparece que usted vive en <span class="ph" style="color:var(--accent-d);font-weight:700;">[CIUDAD]</span>. ¿Es correcto?</p>
+    <div class="branch"><b>Si SÍ:</b> Perfecto. ¿Cuál sería la dirección exacta para realizar la entrega?<br><b>Si NO:</b> Entiendo. ¿Me podría indicar la dirección correcta donde desea recibirlo?</div>
+    <p class="caller"><b>Caller:</b> ¿La dirección corresponde a una casa o a un apartamento?</p>
+    <div class="branch"><b>Si es apartamento:</b> ¿Cuál es el número del apartamento y la letra o número del edificio?</div>
+    <p class="caller"><b>Caller:</b> Las entregas se realizan entre las 12:00 p. m. y las 9:00 p. m. ¿Cuál sería el mejor horario para encontrarle en casa? Por ejemplo, ¿a las 4:00 p. m. o a las 5:00 p. m.?</p>
+    <p class="caller"><b>Caller:</b> Permítame hacerle una pregunta: ¿usted vive con su esposo/a o pareja?</p>
+    <div class="branch"><b>Si SÍ:</b> Perfecto. Como durante la entrega también se explicará cómo funciona el programa familiar y los beneficios disponibles, recomendamos que ambos estén presentes. ¿A las <span class="ph" style="color:var(--accent-d);font-weight:700;">[HORA]</span> se encontrarán los dos en casa?<br><b>Si la pareja no estará:</b> ¿Cuál sería un horario en el que ambos puedan estar disponibles para recibir la explicación?</div>
+    <p class="caller"><b>Caller:</b> Perfecto, entonces quedamos para mañana a las <span class="ph" style="color:var(--accent-d);font-weight:700;">[HORA]</span>.</p>
+    <p class="caller"><b>Caller:</b> Ahora necesito que tome lápiz y papel, o que anote en su teléfono, el código de confirmación correspondiente a su entrega. Su código de confirmación es: <b>1016636</b>. ¿Me lo puede repetir, por favor?</p>
+    <p class="caller"><b>Caller:</b> Perfecto. Este código confirma que hemos reservado el horario de mañana a las <span class="ph" style="color:var(--accent-d);font-weight:700;">[HORA]</span> para visitar su domicilio y entregarle el kit. Por ese motivo, es importante que se encuentre disponible en la dirección indicada.</p>
+    <p class="caller"><b>Caller:</b> Muchas gracias. Que tenga un excelente día/tarde/noche.</p>
+    <p class="note">Intro alternativa de la asistente: "Hola <span class="ph" style="color:var(--accent-d);font-weight:700;">[Nombre]</span>, ¿cómo estás? Te llamo de parte de José Pacheco. Él te envió un mensaje sobre unos beneficios..." — Preguntar "¿te queda mejor hoy o mañana?" en vez de "¿quieres una cita?".</p>
+  </div>
+</details>
+
+<details class="script">
+  <summary>Acercamiento personal — conectar antes de mencionar seguros <span class="tag">3 variantes</span></summary>
+  <div class="dbody">
+    <p class="use" style="margin-top:0;">Para contactos con los que ya hay conversación. Primero conectas con algo que te contaron, después el beneficio.</p>
+    <div class="bubble" id="m10a">Oye, por cierto, me acordé de lo que me habías comentado de que si algún día te pasaba algo, no sabías cómo quedaría el tema de pagar la hipoteca. David está trabajando ahora con seguros de vida, que justamente pueden ayudar con ese tipo de protección, y además la compañía está dando gratis una tarjeta médica de descuentos. Me acordé de ti por eso, si quieres después te cuento bien.</div>
+    <button class="copybtn" data-copy="m10a">Copiar</button>
+    <div style="height:14px"></div>
+    <div class="bubble" id="m10b">Oye, por cierto, me acordé de ti porque David está trabajando con una compañía que está dando gratis una tarjeta médica de descuentos. Como tú ya tienes seguro de salud por el trabajo, esto sería aparte y te puede servir igual. Y también manejan seguros de vida, que me acordé de lo que una vez me comentaste sobre cómo quedaría la hipoteca si te llegara a pasar algo. Si quieres te cuento bien cómo funciona la tarjeta.</div>
+    <button class="copybtn" data-copy="m10b">Copiar</button>
+    <div style="height:14px"></div>
+    <div class="bubble" id="m10c">Oye, por cierto, me acordé de ti porque David está trabajando con una compañía que está dando gratis una tarjeta médica de descuentos. Como tú ya tienes seguro de salud por el trabajo, esto sería aparte y te puede servir igual. También manejan seguros de vida, que me acordé de lo que una vez me comentaste sobre cómo quedaría la hipoteca si te llegara a pasar algo. Si quieres, David te puede llamar y darte más información de la tarjeta y explicarte bien cómo funciona.</div>
+    <button class="copybtn" data-copy="m10c">Copiar</button>
+  </div>
+</details>
+
+<h2 class="sec" id="secuencia">La secuencia de contacto</h2>
+<p class="sub">La misma para todos los leads. Si no responde, se recicla en 30 días con el mensaje del beneficio.</p>
+<div class="card">
+  <div class="step"><span class="day">Día 1</span><span><b>WhatsApp</b> con el mensaje según el tipo de lead (sección anterior).</span></div>
+  <div class="step"><span class="day">Día 2</span><span><b>Llamada.</b> La asistente agenda; no explica el beneficio por teléfono. Pregunta de cierre: "¿te queda mejor hoy o mañana?"</span></div>
+  <div class="step"><span class="day">Día 4</span><span><b>WhatsApp corto de seguimiento</b> <span style="color:var(--muted);font-size:13px;">(propuesta)</span>:</span></div>
+</div>
+<div class="card">
+  <div class="bubble" id="m11">Hola <span class="ph">[Nombre]</span>, ¿cómo estás? Te escribí hace unos días sobre los beneficios gratuitos para familias (la tarjeta de descuentos médicos y el kit de protección infantil). ¿Tuviste chance de ver el mensaje? 😊</div>
+  <button class="copybtn" data-copy="m11">Copiar mensaje</button>
+</div>
+<div class="card">
+  <div class="step"><span class="day">Día 7</span><span><b>Última llamada.</b> Si no contesta, se deja en reciclaje.</span></div>
+  <div class="step"><span class="day">Día 30</span><span><b>Reciclaje:</b> se vuelve a enviar el mensaje del beneficio gratuito como si fuera la primera vez.</span></div>
+</div>
+
+<h2 class="sec" id="objeciones">Manejo de objeciones</h2>
+<p class="sub">Respuestas de tu guion del kit. Calma, una por una, sin discutir.</p>
+<div class="obj"><b class="q">"¿Esto es totalmente gratis o me van a vender algo?"</b><p>Muy buena pregunta. El kit que usted solicitó es completamente gratuito y no tiene costo por la entrega. Durante la visita, el representante también podrá explicarle otros beneficios opcionales disponibles para su familia, pero usted no tiene ninguna obligación de adquirirlos.</p></div>
+<div class="obj"><b class="q">"Yo no solicité nada / no recuerdo haber aplicado"</b><p>Entiendo perfectamente. Tenemos sus datos porque se completó una solicitud por internet relacionada con el kit de protección infantil. Si lo desea, puedo confirmar con usted la información registrada. Recibir el kit es gratuito y no le genera ninguna obligación.</p></div>
+<div class="obj"><b class="q">"No me interesa / ya no lo necesito"</b><p>Entiendo perfectamente. Muchas familias solicitaron este kit porque puede ayudarles a estar mejor informadas y preparadas ante una emergencia de atragantamiento infantil. Como ya fue aprobado sin costo para usted, solamente necesitamos coordinar un horario breve para entregarlo y explicarle su uso.</p></div>
+<div class="obj"><b class="q">"¿Y si durante la visita decido que no lo quiero?"</b><p>No hay ningún problema. El representante le explicará el kit y el programa. Si después de escuchar la información decide no recibirlo o no desea conocer otros beneficios, no tendrá ningún costo ni obligación.</p></div>
+<div class="obj"><b class="q">"Yo ya tengo seguro médico"</b><p>¡Excelente! Esto no es un seguro médico ni reemplaza la atención de emergencia: la tarjeta de descuentos es un beneficio aparte que le puede servir igual, y el kit es un recurso de preparación familiar.</p></div>
+<div class="obj"><b class="q">"Dígame de qué se trata, que yo también tengo cosas que hacer" <span style="font-weight:400;color:var(--muted);">(persona ocupada, 15–20 segundos)</span></b><p>Claro, no le quito tiempo. Es algo sencillo: estoy trabajando con un programa aquí en Utah, un beneficio de descuentos en servicios de salud como dental, visión, medicamentos y laboratorios. Me acordé de usted porque se puede extender también a la familia. No tiene que comprar nada para recibirlo. ¿Qué día le queda bien que se lo muestre con calma, aunque sean 15 minuticos?</p></div>
+
+<h2 class="sec" id="cita">En la cita</h2>
+<p class="sub">Tu presentación de primera visita, paso a paso.</p>
+<div class="card">
+  <div class="rule"><span class="n">1</span><span><b>Identifícate:</b> "David Pacheco" de American Income Life. Posicionamiento: Protección y Planificación Familiar, nunca "el que vende seguros".</span></div>
+  <div class="rule"><span class="n">2</span><span><b>Pregunta guía:</b> "Déjeme hacerle una pregunta. Si mañana, Dios no quiera, usted faltara, ¿cómo quedaría económicamente su familia?"<br><span style="color:var(--muted);font-size:14px;">Seguimiento: ¿quién se encargaría de la renta o hipoteca? ¿De cuánto tiempo de ahorro dispondrían? ¿Su pareja podría mantener todos los gastos sola? ¿Qué pasaría con los niños?</span></span></div>
+  <div class="rule"><span class="n">3</span><span><b>Principio:</b> "NO VENDEMOS MIEDO. ORGANIZAMOS RESPONSABILIDADES." Vende situaciones, no cifras: no "$50,000 de seguro", sino "si David falta, María tiene tiempo para reorganizar su vida sin preguntarse cómo va a pagar la renta".</span></div>
+  <div class="rule"><span class="n">4</span><span><b>Ilustrador familiar:</b> muestra el hueco entre lo que tienen y lo que necesitan. Sobre el A71: "Si tienes un accidente y pierdes días de trabajo, hay dinero que puede ayudarte mientras te recuperas." Sobre hospitalización: "Una hospitalización no solamente genera una factura; también puede dejarte varios días sin producir."</span></div>
+  <div class="rule"><span class="n">5</span><span><b>Presenta 2 o 3 opciones</b> y cierra por asunción.</span></div>
+  <div class="rule"><span class="n">6</span><span><b>Urgencia honesta:</b> "Esto se puede resolver hoy mientras usted está saludable y tiene opciones."</span></div>
+  <div class="rule"><span class="n">7</span><span><b>Siempre con los dos esposos presentes.</b> Si falta uno, se reagenda.</span></div>
+</div>
+
+<h2 class="sec" id="referidos">El motor de referidos</h2>
+<p class="sub">Cada entrega y cada venta termina aquí. Nunca preguntes "¿conoces a alguien que necesite seguro?" — eso mata las referencias.</p>
+<div class="card">
+  <p style="margin:0 0 10px;font-size:15px;"><b>Pregunta así:</b></p>
+  <div class="bubble" id="m12">¿Quiénes son las 3 o 4 personas de tu familia o tus amistades que tienen niños, o que llegaron recientemente, que crees que también les servirían estos beneficios gratuitos?</div>
+  <button class="copybtn" data-copy="m12">Copiar pregunta</button>
+  <div class="rule" style="margin-top:12px;"><span class="n">1</span><span>El <b>cliente les escribe primero</b> avisando que tú los vas a contactar (usa el mensaje de "Referido con nombre").</span></div>
+  <div class="rule"><span class="n">2</span><span>Meta: <b>10 referidos por cliente.</b> 8 ventas al mes × 10 = 80 referidos mensuales.</span></div>
+  <div class="rule"><span class="n">3</span><span>Después de entregar el beneficio, también sirve: "¿Conoces a alguien que no tenga seguro médico?"</span></div>
+</div>
+
+<h2 class="sec" id="numeros">Los números</h2>
+<p class="sub">Meta: $5,000 ALP al mes. Toca la columna "Real" y escribe tu avance de la semana.</p>
+<div class="card" style="padding:0;overflow:hidden;">
+<table class="score">
+<tr><th>Métrica</th><th>Meta semanal</th><th>Real</th></tr>
+<tr><td>Contactos</td><td>~37</td><td contenteditable="true"></td></tr>
+<tr><td>Citas agendadas</td><td>~12</td><td contenteditable="true"></td></tr>
+<tr><td>Presentaciones</td><td>~6</td><td contenteditable="true"></td></tr>
+<tr><td>Ventas</td><td>2</td><td contenteditable="true"></td></tr>
+<tr><td>ALP</td><td>$1,250</td><td contenteditable="true"></td></tr>
+<tr><td>Referidos recogidos</td><td>20</td><td contenteditable="true"></td></tr>
+</table>
+</div>
+<div class="kv">
+  <div class="k"><b>8–10</b>contactos al día ≈ 1 hora de prospección diaria</div>
+  <div class="k"><b>$650</b>ALP promedio por venta (ajusta con tu real)</div>
+</div>
+<p class="note" style="margin-top:10px;">Embudo: 150 contactos/mes → 50 citas → 25 presentaciones → 8 ventas → $5,000 ALP. Fuentes en orden: referidos, reactivación de lista vieja, IMPACT diario, Meta ads.</p>
+
+<footer>
+Guía basada en tus materiales del proyecto "Clase producto y servicios" (ChatGPT). Los mensajes son tus plantillas textuales.<br>Regla de cumplimiento: curso "Do Not Call Compliance Essentials" vence el 16-oct-2026.
+</footer>
+</div>
+<script>
+document.querySelectorAll('.copybtn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var el = document.getElementById(btn.getAttribute('data-copy'));
+    var text = el.innerText;
+    function done(){ btn.classList.add('done'); var o=btn.textContent; btn.textContent='Copiado'; setTimeout(function(){btn.classList.remove('done');btn.textContent=o;},1600); }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(function(){ fallback(); });
+    } else { fallback(); }
+    function fallback(){
+      var ta=document.createElement('textarea'); ta.value=text; ta.style.position='fixed'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select();
+      try{ document.execCommand('copy'); done(); }catch(e){}
+      document.body.removeChild(ta);
+    }
+  });
+});
+</script>
+</body>
+</html>
